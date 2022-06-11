@@ -13,7 +13,7 @@ def train_coord_encoder(path):
     coorddata = CoordinateData()
     if os.path.exists(path):
         coordenc.load_state_dict(torch.load(path, map_location=device))
-    MSE = torch.nn.MSELoss(reduce=False, size_average=False).to(device)
+    MSE = torch.nn.MSELoss(reduction='mean').to(device)
     iter = int(1e6)
     iter_save = 1e4
     lr = 5e-4
@@ -179,7 +179,7 @@ def train_recurrent_agent_mnist(gen_path, agent_path):
             print('\rIteration %d loss %f' % (i, loss.cpu().detach().numpy()), end='')
         torch.save(ra.state_dict(), agent_path)
 
-# train_coord_encoder('./model/coordenc.pkl')
+train_coord_encoder('./model/coordenc.pkl')
 # train_generator('./model/coordenc.pkl', './model/gen.pkl', './dataset/3')
 # train_agent_mnist('./model/gen.pkl', './model/mnist_agent.pkl')
-train_recurrent_agent_mnist('./model/gen.pkl', './model/recurrent_mnist_agent.pkl')
+# train_recurrent_agent_mnist('./model/gen.pkl', './model/recurrent_mnist_agent.pkl')
