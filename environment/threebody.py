@@ -135,7 +135,7 @@ print(world)
 while file_cnt < 65537:
 	generate()
 	print("Counter", file_cnt)
-	if file_cnt % 4096 == 0:
+	if file_cnt % 1024 < 50:
 		f = open('./threebody/strokes.txt', 'w')
 		f.write(str(dataset))
 		f.close()
