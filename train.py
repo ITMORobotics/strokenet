@@ -43,7 +43,7 @@ def train_generator(coordenc_path, gen_path, dataset_path):
     if not os.path.exists('./gen_output'):
         os.mkdir('./gen_output')
     
-    MSE = torch.nn.MSELoss(reduce=False, size_average=False).to(device)
+    MSE = torch.nn.MSELoss(reduction='mean').to(device)
     lr = 5e-5
     optimizer = torch.optim.Adam(filter(
                 lambda p: p.requires_grad, sg.parameters()), lr=lr)
@@ -179,7 +179,7 @@ def train_recurrent_agent_mnist(gen_path, agent_path):
             print('\rIteration %d loss %f' % (i, loss.cpu().detach().numpy()), end='')
         torch.save(ra.state_dict(), agent_path)
 
-train_coord_encoder('./model/coordenc.pkl')
-# train_generator('./model/coordenc.pkl', './model/gen.pkl', './dataset/3')
+# train_coord_encoder('./model/coordenc.pkl')
+train_generator('./model/coordenc.pkl', './model/gen.pkl', './dataset/3')
 # train_agent_mnist('./model/gen.pkl', './model/mnist_agent.pkl')
 # train_recurrent_agent_mnist('./model/gen.pkl', './model/recurrent_mnist_agent.pkl')
