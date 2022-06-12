@@ -19,6 +19,20 @@ For making dataset you should create directory:
 mkdir enviroment/threebody
 ``` 
 
+install `nodejs`, `npm` and required packages:
+```bash
+sudo apt install node npm
+npm install koa
+npm install koa-views
+npm install koa-json
+npm install koa-onerror
+npm install koa-bodyparser
+npm install koa-logger
+npm install puppeteer
+npm install koa-router
+npm install koa-static
+``` 
+
 After that, you can run `threebody.py` in enviroment directory: 
 
 ```bash
@@ -31,4 +45,4 @@ OR download exist dataset from:
 https://disk.yandex.ru/d/7Dd8b12gCH1KpA
 ```
 
-aftter that you can run training.
+Now you can run training.
