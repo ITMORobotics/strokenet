@@ -180,6 +180,6 @@ def train_recurrent_agent_mnist(gen_path, agent_path):
         torch.save(ra.state_dict(), agent_path)
 
 # train_coord_encoder('./model/coordenc.pkl')
-train_generator('./model/coordenc.pkl', './model/gen.pkl', './dataset/3')
+train_generator('./model/coordenc.pkl', './model/gen.pkl', './enviroment/threebody')
 # train_agent_mnist('./model/gen.pkl', './model/mnist_agent.pkl')
 # train_recurrent_agent_mnist('./model/gen.pkl', './model/recurrent_mnist_agent.pkl')
