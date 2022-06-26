@@ -21,7 +21,7 @@ mkdir enviroment/threebody
 
 install `nodejs`, `npm` and required packages:
 ```bash
-sudo apt install node npm
+sudo apt install nodejs npm
 npm install koa
 npm install koa-views
 npm install koa-json
